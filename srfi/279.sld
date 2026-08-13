@@ -32,7 +32,7 @@
           (scheme eval)
           (scheme case-lambda))
   (cond-expand
-    (guile)
+    ((or guile curry))
     (else (import (srfi 253))))
   (cond-expand
     (chibi
@@ -76,6 +76,12 @@
      (include "geiser-modules.scm")
      (import (geiser modules))
      (include "guile.scm"))
+    (curry
+     (import (srfi 1))   ;; List library
+     (import (srfi 69))  ;; Hash tables
+     (import (srfi 111)) ;; Boxes
+     (import (srfi 113)) ;; Sets and bags
+     (include "curry.scm"))
     (else
      (import (srfi 1)) ;; List library
      (import (srfi 14)) ;; Char sets
