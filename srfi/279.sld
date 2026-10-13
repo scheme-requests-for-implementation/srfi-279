@@ -47,9 +47,25 @@
      (import (chibi modules))
      (import (chibi match))
      (include "chibi.scm"))
-    (kawa
+    (stklos
      (import (srfi 1)) ;; List library
-     (import (srfi 8)) ;; receive
+     (import (srfi 2)) ;; and-let*
+     (import (srfi 14)) ;; Char sets
+     (import (srfi 18)) ;; Multithreading
+     (import (srfi 19)) ;; Time
+     (import (srfi 25)) ;; Multi-dimensional arrays
+     (import (srfi 26)) ;; cut/cute
+     (import (srfi 69)) ;; Hash tables
+     (import (srfi 111)) ;; Boxes
+     (import (srfi 113)) ;; Sets and bags
+     (import (srfi 151)) ;; Integers as bits
+     (import (srfi 160 base)) ;; Numeric vectors
+     (import (srfi 195)) ;; Multiple-value boxes
+     (import (srfi 229)) ;; Tagged procedures
+     (include "stklos.scm"))
+    (kawa
+     (import (srfi 1))  ;; List library
+     (import (srfi 8))  ;; receive
      (import (srfi 14)) ;; Char sets
      (import (srfi 26)) ;; cut/cute
      (import (srfi 60)) ;; Integers as bits
@@ -74,11 +90,10 @@
      (include "guile.scm"))
     (chicken
      (import (chicken base))
+     (import (chicken bitwise))
      (import (srfi 1)) ;; List library
-     (import (srfi 14)) ;; Char sets
-     (import (srfi 69)) ;; Hash tables
-     (import (srfi 151)) ;; Integers as bits
-     (import (srfi 160 base)) ;; Numeric vectors
+     (import (srfi 4)) ;; Numeric vectors
+     (import (srfi 26)) ;; cut / cute
      (include "chicken.scm"))
     (else
      (import (srfi 1))   ;; List library
