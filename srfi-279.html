@@ -126,7 +126,7 @@ will not appear in the final SRFI.</p>
 
 <p>
   Scheme needs generic inspectors.
-  This SRFI provides a protocol and pointers that interactive inspectors for arbitrary data structures can be build from.
+  This SRFI provides a protocol and pointers that interactive inspectors for arbitrary data structures can be built from.
 </p>
 
 <p>
@@ -135,9 +135,9 @@ will not appear in the final SRFI.</p>
   <a href="#spec--describe">inspect-describe</a> are three procedures provided by this SRFI.
   <code>inspect-properties</code> allows previewing the structured key-value (meta)data about an object,
   while <code>inspect-describe</code> provides simple, human-readable description of an object for display in the REPL or UI (user interface).
-  <code>inspect-property</code> is a thin wrapper allowing to conveniently get an individual property for a given object.
+  <code>inspect-property</code> is a thin wrapper allowing one to get an individual property for a given object conveniently.
   A list of useful properties per data type is provided for ease of implementation and consolidation of inspectors.
-  Sample implementation is also provided for multiple implementations.
+  A sample implementation is also provided for multiple implementations.
 </p>
 
 <h2 id="specification">Specification</h2>
@@ -147,7 +147,7 @@ will not appear in the final SRFI.</p>
   <a href="#spec--properties">inspect-properties</a> and <a href="#spec--describe">inspect-describe</a>.
   These are enough to implement a rich inspector.
   <code>inspect-properties</code> provides structured data to build the body of inspector from,
-  while <code>inspect-describe</code> is useful in building a quick glance section or UI header.
+  while <code>inspect-describe</code> is useful for building a quick-glance section or UI header.
   A potential and conventional inspector UI can thus look like
 </p>
 
@@ -180,7 +180,7 @@ will not appear in the final SRFI.</p>
 <p>
   While type-identifying properties like <a href="https://standards.scheme.org/r7rs-html5/index.html#exact?">exact?</a> and <a href="https://standards.scheme.org/r7rs-html5/index.html#input-port?">input-port?</a> might be useful,
   they are not specified.
-  Because type of the value is provided / contextually apparent as a property in itself already.
+  Because the type of the value is provided / contextually apparent as a property in itself already.
   Most other properties specified here cannot be queried directly / inferred from a type; or are inherent properties of the object.
   E.g <code>char-numeric?</code> is not a type predicate, but rather a category of a char.
 </p>
@@ -197,14 +197,14 @@ will not appear in the final SRFI.</p>
 
 <p>
   While this specification is not binding,
-  it is highly recommended that implementations provide as many of the properties below as possible.
-  Over the implementation-specific names and fields.
-  For greater compatibility and clear expectations from this protocol.
+  it is highly recommended that implementations provide as many of the properties below as possible,
+  rather than implementation-specific names and fields,
+  for greater compatibility and clear expectations from this protocol.
 </p>
 
 <p>
   Lastly, a note on notation:
-  Property+value listings have special notation, which, although considered intuitive by the author, needs explanation:
+  Property+value listings have a special notation, which, although considered intuitive by the author, needs explanation:
 </p>
 
 <dl>
@@ -334,7 +334,7 @@ will not appear in the final SRFI.</p>
   <dt> string-&gt;symbol, string-&gt;utf8, string-&gt;number
   <dd> As per the standard
   <dt> string-length → integer, string-byte-length → integer
-  <dd> Length of the string (as per the standard, in characters;) and length of the string in bytes.
+  <dd> Length of the string in characters (as per the standard), and length of the string in bytes.
   <dt> file-exists? → boolean
   <dd> Whenever the string represents a file path, whether the path exists.
     Other file-related properties fit into string properties too.
@@ -370,7 +370,7 @@ will not appear in the final SRFI.</p>
   <dt> input-port?, input-port?, textual-port?, binary-port? → boolean
   <dd> For sub-types of ports
   <dt> port-file → string, port-file-descriptor → integer
-  <dd> File the port is writing / reading from, if any.
+  <dd> File the port is writing to / reading from, if any.
   <dt> port-line → integer, port-column → integer,  port-position → integer
   <dd> Position in the port, line/column-wise or character-wise.
   <dt> port-encoding → symbol
@@ -388,7 +388,7 @@ will not appear in the final SRFI.</p>
   <dd> Likely a symbol that the procedure is currently bound to, whether local or global.
   <dt> procedure-arity-mask → integer, procedure-arity → arity
   <dd> As per <a href="https://srfi.schemers.org/srfi-191/srfi-191.html#Specification">SRFI 191</a> and <a href="https://srfi.schemers.org/srfi-102/srfi-102.html#Specification">SRFI 102</a> respectively.
-    While both of these were withdrawn, they serve and important purpose: allowing basic yet essential introspection of procedures.
+    While both of these were withdrawn, they serve an important purpose: allowing basic yet essential introspection of procedures.
   <dt> procedure-arglists → [null | pair | symbol]
   <dd> List of possible argument lists of the procedure.
     Procedures can be defined via <a href="https://standards.scheme.org/r7rs-html5/index.html#case-lambda">case-lambda</a> and thus have multiple arities / arglists.
@@ -465,8 +465,8 @@ will not appear in the final SRFI.</p>
 <h4 id="spec--properties--hash">Hash table (hash-table?) properties</h4>
 
 <p>
-  There are several versions of hash tables in Scheme, with <a href="https://srfi.schemers.org/srfi-69/srfi-69.html">SRFI 69: Basic hash tables</a> being the most prevalent.
-  And with <a href="https://srfi.schemers.org/srfi-126/srfi-126.html">SRFI 126: R6RS-based hashtables</a> and R6RS itself being an important influence.
+  There are several versions of hash tables in Scheme, with <a href="https://srfi.schemers.org/srfi-69/srfi-69.html">SRFI 69: Basic hash tables</a> being the most prevalent,
+  and with <a href="https://srfi.schemers.org/srfi-126/srfi-126.html">SRFI 126: R6RS-based hashtables</a> and R6RS itself being an important influence.
 </p>
 
 <dl>
@@ -546,7 +546,7 @@ will not appear in the final SRFI.</p>
 
 <p>
   Bag properties are suggested to have only one pair in order
-  to not duplicate work and to delegate everything to set properties.
+  not to duplicate work and to delegate everything to set properties.
   However, implementations may freely add more bag-specific properties.
 </p>
 
@@ -558,7 +558,7 @@ will not appear in the final SRFI.</p>
 <h4 id="spec--properties--library">Library properties</h4>
 
 <p>
-  While not represented in standard type system, library is a valid concept deserving inspection.
+  While not represented in the standard type system, library is a valid concept deserving inspection.
 </p>
 
 <dl>
@@ -568,7 +568,7 @@ will not appear in the final SRFI.</p>
   <dd> Lists mirroring syntax of <a href="https://standards.scheme.org/r7rs-html5/index.html#5.6.1">library declaration fragments</a>.
   <dt> library-body → list
   <dd> List of forms library body consists of.
-    Might include the <code>include</code>-d forms and is otherwise implementation-dependent.
+    Might include the <code>include</code>-d forms, and is otherwise implementation-dependent.
 </dl>
 
 <h4 id="spec--properties--env">Environment properties</h4>
@@ -591,7 +591,7 @@ will not appear in the final SRFI.</p>
   Gets an inspect property under <var>key</var> from inspect properties
   (as defined by <a href="#spec--properties">inspect-properties</a>.)
   Returns two values: (1) property value, and (2) boolean denoting whether the property was found.
-  In the simplest implementation is’s a mere
+  In the simplest implementation it’s a mere
   <a href="https://standards.scheme.org/r7rs-html5/index.html#assoc">assoc</a>
   over <code>inspect-properties</code>, with additional processing.
   A more involved implementation might calculate any individual property on-demand,
