@@ -489,7 +489,7 @@
         (values #f #f))))
 
 
-;;; TODO                                        
+;;; TODO
 ;;; inspect-describe
 
 (define (number-describe object)
