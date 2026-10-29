@@ -11,7 +11,7 @@ keywords: [[https://srfi.schemers.org/?keywords=introspection][Introspection]]
 
 This repository hosts [[https://srfi.schemers.org/srfi-279/][SRFI 279]]: In(tro)spection Protocol, a [[https://srfi.schemers.org/][Scheme Request for Implementation]].
 
-This SRFI is in /draft/ status.
+This SRFI is in /final/ status.
 See also [[/srfi-69/][SRFI 69: Basic hash tables]], [[/srfi-99/][SRFI 99: ERR5RS Records]], [[/srfi-102/][SRFI 102: Procedure Arity Inspection]], and [[/srfi-191/][SRFI 191: Procedure Arity Inspection]].
 The full documentation for this SRFI can be found in the [[https://srfi.schemers.org/srfi-279/srfi-279.html][SRFI Document]].
 
